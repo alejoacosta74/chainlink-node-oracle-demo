@@ -1,0 +1,346 @@
+{
+	"compiler": {
+		"version": "0.4.24+commit.e67f0147"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "getChainlinkToken",
+				"outputs": [
+					{
+						"name": "",
+						"type": "address"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [],
+				"name": "renounceOwnership",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"name": "",
+						"type": "address"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [],
+				"name": "withdrawLink",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "_requestId",
+						"type": "bytes32"
+					},
+					{
+						"name": "_price",
+						"type": "uint256"
+					}
+				],
+				"name": "fulfillEthereumPrice",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "currentPrice",
+				"outputs": [
+					{
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "_oracle",
+						"type": "address"
+					},
+					{
+						"name": "_jobId",
+						"type": "string"
+					}
+				],
+				"name": "requestEthereumPrice",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "_requestId",
+						"type": "bytes32"
+					},
+					{
+						"name": "_payment",
+						"type": "uint256"
+					},
+					{
+						"name": "_callbackFunctionId",
+						"type": "bytes4"
+					},
+					{
+						"name": "_expiration",
+						"type": "uint256"
+					}
+				],
+				"name": "cancelRequest",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "_newOwner",
+						"type": "address"
+					}
+				],
+				"name": "transferOwnership",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"name": "_link",
+						"type": "address"
+					}
+				],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"name": "requestId",
+						"type": "bytes32"
+					},
+					{
+						"indexed": true,
+						"name": "price",
+						"type": "uint256"
+					}
+				],
+				"name": "RequestEthereumPriceFulfilled",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"name": "previousOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipRenounced",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"name": "previousOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipTransferred",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"name": "id",
+						"type": "bytes32"
+					}
+				],
+				"name": "ChainlinkRequested",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"name": "id",
+						"type": "bytes32"
+					}
+				],
+				"name": "ChainlinkFulfilled",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"name": "id",
+						"type": "bytes32"
+					}
+				],
+				"name": "ChainlinkCancelled",
+				"type": "event"
+			}
+		],
+		"devdoc": {
+			"methods": {
+				"renounceOwnership()": {
+					"details": "Allows the current owner to relinquish control of the contract."
+				},
+				"transferOwnership(address)": {
+					"details": "Allows the current owner to transfer control of the contract to a newOwner.",
+					"params": {
+						"_newOwner": "The address to transfer ownership to."
+					}
+				}
+			}
+		},
+		"userdoc": {
+			"methods": {
+				"renounceOwnership()": {
+					"notice": "Renouncing to ownership will leave the contract without an owner. It will not be possible to call the functions with the `onlyOwner` modifier anymore."
+				}
+			}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"GanacheChainlinkClient.sol": "GanacheChainlinkClient"
+		},
+		"evmVersion": "byzantium",
+		"libraries": {},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"GanacheChainlinkClient.sol": {
+			"keccak256": "0xc1e3dbc44c8f9ad527b72dc0997ac4ebfca99db13cde11f647bd41020e72c9af",
+			"urls": [
+				"bzzr://b217859cbfb30c6c2d17d9d86af30fbc75a0f87839551499a68d0ef9ff968eff"
+			]
+		},
+		"chainlink/contracts/Chainlink.sol": {
+			"keccak256": "0x18ea7c46a06f8db2b592beea268476f7a6d65d4b038c7e4f7ac1ff569320a6f2",
+			"urls": [
+				"bzzr://17b93243739807c0157884a9a58cb590d9d547d2fa6963366b1d74ab58fda7c3"
+			]
+		},
+		"chainlink/contracts/ChainlinkClient.sol": {
+			"keccak256": "0xa7046a924941ac7a836997e9784dada7c0d9af216c42c88c3175985062352f8a",
+			"urls": [
+				"bzzr://de43d2920231895680ea16a52162b1cf50727c419ba185f69217850d85381a3e"
+			]
+		},
+		"chainlink/contracts/interfaces/ChainlinkRequestInterface.sol": {
+			"keccak256": "0x7d3983584065248fba8f0ce75fd86feac43ade43784466f87ea502254ddec992",
+			"urls": [
+				"bzzr://30de07df8cb9fb4ec53aff0f115f88d65936ffd6e90d2aeb031a05d6bf4de6c1"
+			]
+		},
+		"chainlink/contracts/interfaces/ENSInterface.sol": {
+			"keccak256": "0xd0b1a6134b5d6c0213bc4db5df8693ec41e13de3d97d43cc8d19639e516f9767",
+			"urls": [
+				"bzzr://93d66e26b4b5cf6cfa8c6a5d04cb56ff27d49a2aee8f54858ac3db7658355b1f"
+			]
+		},
+		"chainlink/contracts/interfaces/LinkTokenInterface.sol": {
+			"keccak256": "0xcf91684e6d3a6fda4f29814d5bb353d8a1a8d3a6aef0f49bc5be5592d1114b10",
+			"urls": [
+				"bzzr://e39dee93390ebce41acb571412660f3734f9e4bcee3367895d872d55ef54d2df"
+			]
+		},
+		"chainlink/contracts/interfaces/PointerInterface.sol": {
+			"keccak256": "0x8019f30a207af4ee80a8b2774e42aba721641254ed0a97826a54f33d7caef218",
+			"urls": [
+				"bzzr://8ddbb9ae67ec27aed40d6013d6ea176c05f7cd61d4f6fa95492a03fa086d90af"
+			]
+		},
+		"chainlink/contracts/vendor/Buffer.sol": {
+			"keccak256": "0x900b4c8ab35b4876d89835a8b050c96107ace250a70f64c5bba6a78a60f03883",
+			"urls": [
+				"bzzr://408340da4e8fa35e608196ee508f11f9d44f6f70a10f0db0083ab20b5a894d59"
+			]
+		},
+		"chainlink/contracts/vendor/CBOR.sol": {
+			"keccak256": "0x525c4abf9b99b71009abcb716742e9bf8d6f159aee816d130a4c9f34c32b80d8",
+			"urls": [
+				"bzzr://79f1dfcd9236d1e06e919e8e647a46c33efcef6ec84c99f701a6e05e5fc1bf9a"
+			]
+		},
+		"chainlink/contracts/vendor/ENSResolver.sol": {
+			"keccak256": "0x08965df63f00cb8d164d6fc36a0c388740725906b0bfb79b17391d5dfeabf683",
+			"urls": [
+				"bzzr://0700cb12e032ed8ed8327e446dfd805ae9fa28785a2909a73def511fe374b8cd"
+			]
+		},
+		"chainlink/contracts/vendor/Ownable.sol": {
+			"keccak256": "0x84c7090c27cf3657b73d9e26b6b316975fa0bd233b8169f254de0c3b3acfaefc",
+			"urls": [
+				"bzzr://b983355647976c1daa5de581a1b6a41be9c5adc17cce257b8679649db78f8a11"
+			]
+		},
+		"chainlink/contracts/vendor/SafeMath.sol": {
+			"keccak256": "0xa1c5e1d9ebbf654d332ca8e7a5c04a6a6a9d142eeaab3b988c2c909c81a62bef",
+			"urls": [
+				"bzzr://d062fb4a1b6de1f036ee0e73364a2532c4757eb68e95dd8c5cbb2d17b8732c6a"
+			]
+		}
+	},
+	"version": 1
+}

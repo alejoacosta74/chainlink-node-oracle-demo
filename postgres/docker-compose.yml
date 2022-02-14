@@ -1,0 +1,25 @@
+# https://hub.docker.com/_/postgres/
+# Use postgres/example user/password credentials
+version: '3.1'
+
+services:
+
+  db:
+    image: postgres
+    restart: always
+    container_name: chainlink_postgres
+    environment:
+      POSTGRES_PASSWORD: dbpass
+      POSTGRES_USER: dbuser
+      POSTGRES_DB: dbchainlink
+    ports:
+      - 8081:8081
+      - 5432:5432
+
+
+  adminer:
+    image: adminer
+    container_name: postgres_adminer
+    restart: always
+    ports:
+      - 8080:8080

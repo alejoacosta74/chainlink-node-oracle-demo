@@ -118,22 +118,6 @@ func main() {
 				}
 			}
 
-			// event := OracleRequestEvent{}
-
-			// event, err := contractAbi.Unpack("OracleRequest", vLog.Data)
-			var eventInterface interface{}
-			err := contractAbi.UnpackIntoInterface(eventInterface, "OracleRequest", vLog.Data)
-			if err != nil {
-				log.Fatal(err)
-			}
-
-			event, ok := eventInterface.(OracleRequestEvent)
-			if !ok {
-				fmt.Println("Could not decode event. Unknown interface value")
-			} else {
-				fmt.Printf("UnpackedEvent: %s\n", fmt.Sprintf("%+v", event))
-			}
-
 			var topics [4]string
 			for i := range vLog.Topics {
 				topics[i] = vLog.Topics[i].Hex()

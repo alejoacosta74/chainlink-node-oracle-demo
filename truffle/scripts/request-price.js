@@ -29,7 +29,7 @@ module.exports = async callback => {
 
 	let jobs= await getJobs()
 	jobs = jobs.sort((a,b) => a.id > b.id ? 1 : ( a.id < b.id ? -1 : 0))
-	let jobID = jobs[0].attributes.externalJobID
+	let jobID = jobs[4].attributes.externalJobID
 	jobID = jobID.replace(/-/g,'')
 	// let jobID = "b7365ef3db254e5995174cd18e471c11"	
 	console.log(`\n...calling first chainlink job found -> job ID: ${jobID}`);

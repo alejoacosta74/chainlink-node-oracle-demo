@@ -29,9 +29,8 @@ module.exports = async callback => {
 
 	let jobs= await getJobs()
 	jobs = jobs.sort((a,b) => a.id > b.id ? 1 : ( a.id < b.id ? -1 : 0))
-	let jobID = jobs[4].attributes.externalJobID
+	let jobID = jobs[0].attributes.externalJobID
 	jobID = jobID.replace(/-/g,'')
-	// let jobID = "b7365ef3db254e5995174cd18e471c11"	
 	console.log(`\n...calling first chainlink job found -> job ID: ${jobID}`);
 
 	console.log(`\n...sending request to Client contract`);
@@ -39,11 +38,11 @@ module.exports = async callback => {
 	try {
 		let receipt = await client.requestEthereumPrice(
 			oracle.address,
-			jobID
+			jobID,
 		)
 		console.log('TX receipt: ', receipt);
-		console.log(`... waiting 5 seconds to allow chainlink off chain API call to return data`);
-		await sleep(5000)
+		console.log(`... waiting 10 seconds to allow chainlink off chain API call to return data`);
+		await sleep(10000)
 	
 		console.log(`\n...retrieving ETH price`);
 		let price = await client.currentPrice()

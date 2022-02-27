@@ -21,6 +21,8 @@
     "@truffle/hdwallet-provider": "^2.0.3",
     "chainlink": "^0.7.8",
     "dotenv": "^16.0.0",
-    "link_token": "^1.0.6"
+    "ethers": "^5.5.4",
+    "link_token": "^1.0.6",
+    "qtum-ethers-wrapper": "^0.1.5"
   }
 }

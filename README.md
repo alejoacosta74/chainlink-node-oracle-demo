@@ -135,14 +135,6 @@ go run main.go local n -p $NODEPWD -a $APIPWD
 
 http://localhost:6688/signin
 
-## Subscribing to Oracle event
-
-You can subscribe to `OracleRequest` event by running the following golang listener
-
-```bash
-cd utils
-go run subscribe_oracle.go qtum 23890
-```
 
 ## Deployment addresses
 
@@ -155,14 +147,57 @@ Network: Rinkeby (id: 4)
 ```
 
 ```bash
-Network: Qtum Testnet (id: 8889)
   GanacheChainlinkClient: 0x80d2f667e6bBf6Ab2937d1F6697903f858dd9090
   LinkToken: 0xE9555c1F9C8C97eeF5D4D9B37f8de07B6B359547
   Migrations: 0x21Cad20E7a8b6aFb3268A9c2Ba6575356784dC13
   Oracle: 0x7fD9A5E7a38CC396609cf389364e9504F14A5ee6
 ```
+## Miscelaneous
 
-## Deployment to Rinkeby
+
+
+### Updating env vars
+
+- frontend
+  
+Update `App.js` accordingly:
+
+```javascript
+const backendURL = "http://127.0.0.1:3000/demo";
+const JANUS="ws://54.193.12.166:23889";
+```
+
+- backend
+
+Update `.env` :
+
+```bash
+JANUS="http://54.193.12.166:23889"
+```
+
+- Chainlink
+
+Update `qtum_testnet.env`:
+
+```bash
+export ETH_URL=ws://54.193.12.166:23889
+export DATABASE_URL=postgresql://dbuser:dbpass@127.0.0.1:5432/qtumchainlinkdev?sslmode=disable
+```
+
+### Wallets
+
+Backend API expects a qtum node running with a local (funded) wallet for address `qUbxboqjBRp96j3La8D1RYkyqx5uQbJPoW`
+
+### Subscribing to Oracle event
+
+You can subscribe to `OracleRequest` event by running the following golang listener
+
+```bash
+cd utils
+go run subscribe_oracle.go qtum 23890
+```
+
+### Deployment to Rinkeby
 
 Create a `.env` file inside `truffle` folder with the infura credentials and seed phrase
 

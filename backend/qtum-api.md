@@ -1,5 +1,5 @@
 
-# api
+# signing api for qtum
 
 ![Qtum setup](qtum-api.png)
 

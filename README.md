@@ -14,9 +14,7 @@ Ref: https://docs.chain.link/docs/fulfilling-requests/
 
 This project has a number of dependencies, including but not limited to: Node.js, Ganache and Docker.
 
-## Usage
-
-### => Automatic deployment to Gananche
+## Basic deployment to Gananche
 
 - Before using this project, start a Ganache workspace that includes `./truffle/truffle-config.js` from this project and serves
 on all interfaces (`0.0.0.0`).
@@ -28,7 +26,7 @@ with ETH and give the address of your Chainlink node fulfillment permissions on 
 
 - Run `npm run stop` to shutdown the Chainlink node.
 
-### => Manual deployment to Ganache/Qtum/Rinkeby
+## Custom deployment to Ganache/Rinkeby
 
 - Migrate contracts with truffle
 
@@ -131,6 +129,11 @@ cd <location of chainlink node repo>/core
 go run main.go local n -p $NODEPWD -a $APIPWD
 ```
 
+or
+```
+./chainlink local n -p $NODEPWD -a $APIPWD
+```
+
 4. Test web Node Operator GUI
 
 http://localhost:6688/signin
@@ -153,7 +156,6 @@ Network: Rinkeby (id: 4)
   Oracle: 0x7fD9A5E7a38CC396609cf389364e9504F14A5ee6
 ```
 ## Miscelaneous
-
 
 
 ### Updating env vars
@@ -205,3 +207,28 @@ Create a `.env` file inside `truffle` folder with the infura credentials and see
 MNEMONIC="<seed phrase>"
 INFURA_APIKEY="<api key>"
 ```
+
+### Chailink node address
+
+Regular address
+```
+hex: "0x78Ad4cB180b93Af91D24f3A62A0346DB15E834F3"
+base58: qUZTr7kDgpZDn6uctfv6sHZ4esJPJanCKR
+```
+
+Emergency funding address
+```
+hex: "0x4e07e496c5F6b93Ca913c3f20C1838F772c272e7"
+base58: qQfyKQPsTLtnzp2Nnr9e5PuByLzXnVQduM
+```
+
+### start backend API 
+
+
+```
+NODE_ENV=production && pm2 start npm --name "qtum-api" -- start
+```
+
+### frontend web UI
+
+![webui](frontend.png)

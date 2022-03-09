@@ -8,9 +8,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Demo from "./demo.png"
 import "./App.css";
 
-const backendURL = "http://127.0.0.1:3000/demo";
+const backendURL = "http://104.154.24.91:3000/demo";
 // const JANUS="wss://testnet-janus.qiswap.com/api/"
-const JANUS="ws://54.193.12.166:23889";
+const JANUS="ws://104.154.24.91:23889";
 
 function App(){
   const [price, setPrice] = useState(undefined);
@@ -142,7 +142,7 @@ function App(){
       <Navbar className="App-header">
         <Nav tag="h2">Qtum Oracle App Demo</Nav>
         <Nav ><Badge pill color="light">
-          <NavLink href="http://localhost:6688">Oracle Operator Panel</NavLink>
+          <NavLink href="http://104.154.24.91:6688">Oracle Operator Panel</NavLink>
         </Badge></Nav>
       </Navbar>
 

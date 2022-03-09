@@ -3,8 +3,11 @@ const { Contract } = require('ethers');
 require('dotenv').config()
 const CLIENT = require('../../../truffle/build/contracts/GanacheChainlinkClient');
 const clientAddr = CLIENT.networks[8889].address;
-const JANUS = process.env.JANUS
-const PRIVKEY = process.env.QTUM_KEY
+//const JANUS = process.env.JANUS
+//const PRIVKEY = process.env.QTUM_KEY
+const QTUM_KEY="cMbgxCJrTYUqgcmiC1berh5DFrtY1KeU4PXZ6NZxgenniF1mXCRk";
+const JANUS="http://127.0.0.1:23889";
+const PRIVKEY = QTUM_KEY;
 const {
 	QtumProvider : Provider,
 	QtumWallet : Wallet,
@@ -26,7 +29,9 @@ exports.demo = async (req, res) => {
 
 	try {
 		const client = new Contract(clientAddr, CLIENT.abi, signer);
-		
+		//console.log("demoController: client :", client);
+
+		console.log("sending TX to:", clientAddr);
 		let receipt = await client.requestEthereumPrice(
 			...values,
 			{

@@ -3,9 +3,11 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var compression = require('compression');
+var helmet = require('helmet');
 
-var apiRouter = require('./routes/apiRouter')
-var demoRouter = require('./routes/demoRouter')
+var apiRouter = require('./routes/apiRouter');
+var demoRouter = require('./routes/demoRouter');
 
 var app = express();
 
@@ -18,7 +20,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(compression()); //Compress all routes
+app.use(helmet());
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 //CORS middleware
